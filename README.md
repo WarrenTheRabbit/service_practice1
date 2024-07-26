@@ -1,4 +1,5 @@
 This is the project readme.
+<<<<<<< HEAD
 
 
 ## Goal 1: Walking Skeleton
@@ -12,3 +13,5 @@ built, deployed and tested.
     - CI/CD pipeline
     - monitoring
     - alerting
+=======
+>>>>>>> cee1fae (doc: add README)
