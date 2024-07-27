@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "service1"
+version = "0.1.0"
+description = "Creating a walking skeleton of a microservice."
+authors = ["Warren <rabbitsinwarrens@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.111.1"
+pytest = "^8.3.2"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
