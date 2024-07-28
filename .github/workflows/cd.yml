@@ -37,7 +37,7 @@ jobs:
       env:
          REGISTRY: ${{ secrets.REGISTRY }}
       run: |
-        aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin $REGISTRY
+        aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin $REGISTRY.dkr.ecr.ap-southeast-2.amazonaws.com
 
     - name: Build, tag, and push docker image to Amazon ECR
       env:
