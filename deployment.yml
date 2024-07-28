@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service1
+  labels:
+    app: service1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service1
+  template:
+    metadata:
+      labels:
+        app: service1
+    spec:
+      containers:
+        - name: service1
+          image: 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
