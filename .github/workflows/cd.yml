@@ -53,7 +53,3 @@ jobs:
       run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
-
-
-docker build -t 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:1.1 -f service1/Dockerfile service1
-docker push 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:1.1
