@@ -34,12 +34,14 @@ jobs:
         echo "Logged into ECR registry: ${{ steps.login-ecr.outputs.registry }}"
 
     - name: Verify Login to Amazon ECR
+      env:
+         REGISTRY: ${{ secrets.REGISTRY }}
       run: |
-        aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
+        aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin $REGISTRY
 
     - name: Build, tag, and push docker image to Amazon ECR
       env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REGISTRY: ${{ secrets.REGISTRY }}
         REPOSITORY: testdeploy
         IMAGE_TAG: 1.1
       run: |
