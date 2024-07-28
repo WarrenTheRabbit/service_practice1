@@ -35,8 +35,8 @@ jobs:
         REPOSITORY: testdeploy
         IMAGE_TAG: 1.1
       run: |
-        docker build -t 590184058011/$REPOSITORY:$IMAGE_TAG -f service1/Dockerfile service1
-        docker push 590184058011/$REPOSITORY:$IMAGE_TAG
+        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -f service1/Dockerfile service1
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
     - name: Update kube config
       run: aws eks update-kubeconfig --name testdeploy
