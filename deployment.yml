@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: service1
-          image: 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:1.1
+          image: 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:${IMAGE_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
