@@ -39,6 +39,7 @@ jobs:
       run: |
         docker build -t $REGISTRY/testdeploy:$IMAGE_TAG -f service1/Dockerfile service1
         docker push $REGISTRY/testdeploy:$IMAGE_TAG
+        docker push 590184058011.dkr.ecr.ap-southeast-2.amazonaws.com/testdeploy:production
 
     - name: Check if cluster exists
       id: check-cluster
@@ -68,7 +69,6 @@ jobs:
         IMAGE_NAME: ${{ github.sha }}
       
       run: |
-        envsubst < deployment.yml > deployment_substituted.yml
-        kubectl apply -f deployment_substituted.yml
+        kubectl apply -f deployment.yml
         kubectl apply -f service.yml
         
