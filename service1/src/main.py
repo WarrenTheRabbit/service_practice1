@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request
+
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from src.middleware import log_middleware

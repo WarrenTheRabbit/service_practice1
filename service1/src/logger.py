@@ -8,8 +8,9 @@ import sys
 logger = logging.getLogger("service1")
 
 formatter = logging.Formatter(
+
     fmt="%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s"
-)
+
 
 stream_handler = logging.StreamHandler(sys.stdout)
 file_handler = logging.FileHandler("app1.log")
