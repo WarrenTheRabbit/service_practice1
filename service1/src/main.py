@@ -1,20 +1,13 @@
 from fastapi import FastAPI, Request
+from starlette.middleware.base import BaseHTTPMiddleware
+
+from src.middleware import log_middleware
 from src.logger import logger
 
+
 app = FastAPI()
+app.add_middleware(BaseHTTPMiddleware, dispatch=log_middleware)
 logger.info("Starting service1...")
-
-
-@app.middleware("http")
-async def log_middleware(request: Request, call_next):
-    log_dict = {
-        'url': request.url.path,
-        'method': request.method,
-    }
-    logger.info(log_dict)
-    
-    response = await call_next(request)
-    return response
 
 
 @app.get("/")
